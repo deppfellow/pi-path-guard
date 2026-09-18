@@ -1,0 +1,26 @@
+{
+	"version": 1,
+	"roots": [
+    "/tmp",
+    "~/dotfiles",
+    "~/.pi/agent/npm/node_modules/@zenspc/pi-pstack"
+  ],
+	"hostPassthrough": {
+		"enabled": false,
+		"commandPrefixes": [],
+		"reason": "Prefix rules are dead: the verified attack showed git -C, gh repo delete, and $( ) substitution defeat any first-word prefix. Every bash tool call is boxed through scripts/sandbox-run. Host-side git egress goes only through the fixed argv form sandbox-run --ship -t TITLE -b BODY."
+	},
+	"shipPattern": "^sandbox-run\\s+--ship\\s+-t\\s+'[^']*'\\s+-b\\s+'[^']*'\\s*$",
+	"shipHint": "sandbox-run --ship -t 'TITLE' -b 'BODY'",
+	"pathArgTools": {
+		"fffind": ["path"],
+		"ffgrep": ["path"]
+	},
+	"dropTools": [],
+	"perAgent": {
+		"default": { "bash": "off", "extraRoots": [] },
+		"worker": { "bash": "box", "extraRoots": [] },
+		"verifier": { "bash": "box", "extraRoots": [] }
+	},
+	"logFile": "/tmp/pi-path-guard.log"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "pi-path-guard",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "SBX-2 fence: file-tool path fence plus bash boxing through scripts/sandbox-run",
+	"scripts": {
+		"selfcheck": "tsx selfcheck.ts"
+	},
+	"devDependencies": {
+		"@earendil-works/pi-coding-agent": "0.85.1",
+		"tsx": "^4.20.0"
+	},
+	"pi": {
+		"extensions": ["./index.ts"]
+	}
+}
